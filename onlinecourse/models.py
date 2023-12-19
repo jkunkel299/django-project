@@ -9,7 +9,6 @@ except Exception:
 from django.conf import settings
 import uuid
 
-
 # Instructor model
 class Instructor(models.Model):
     user = models.ForeignKey(
@@ -21,7 +20,6 @@ class Instructor(models.Model):
 
     def __str__(self):
         return self.user.username
-
 
 # Learner model
 class Learner(models.Model):
@@ -51,7 +49,6 @@ class Learner(models.Model):
         return self.user.username + "," + \
                self.occupation
 
-
 # Course model
 class Course(models.Model):
     name = models.CharField(null=False, max_length=30, default='online course')
@@ -67,14 +64,12 @@ class Course(models.Model):
         return "Name: " + self.name + "," + \
                "Description: " + self.description
 
-
 # Lesson model
 class Lesson(models.Model):
     title = models.CharField(max_length=200, default="title")
     order = models.IntegerField(default=0)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     content = models.TextField()
-
 
 # Enrollment model
 # <HINT> Once a user enrolled a class, an enrollment entry should be created between the user and course
